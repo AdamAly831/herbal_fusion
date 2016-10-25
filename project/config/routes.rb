@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/recipes/:id' => 'recipes#show'
 
+  patch '/users/:id/edit' => 'users#edit'
+
   delete '/users/destroy' => 'users#destroy'
 
   delete '/recipes/destroy' => 'recipes#destroy'
