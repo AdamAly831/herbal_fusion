@@ -1,56 +1,28 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'recipes#warning'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get '/recipes/home' => 'recipes#index'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  get '/recipes/new' => 'recipes#new'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  post '/recipes' => 'recipes#create'
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  get '/users/new' => 'users#new'
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  post '/users' => 'users#create'
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  post '/comments' => 'comments#create'
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  post '/allergies' => 'allergies#create'
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get '/recipes/:id' => 'recipes#show'
+
+  patch '/users/:id/edit' => 'users#edit'
+
+  delete '/users/destroy' => 'users#destroy'
+
+  delete '/recipes/destroy' => 'recipes#destroy'
+
+
 end
